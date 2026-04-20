@@ -19,47 +19,22 @@ body {
 
 .container { text-align:center; width:100%; }
 
-/* VINILO NEGRO REALISTA */
+/* === TU VINILO PERSONALIZADO === */
 .vinyl {
-  width: 360px;
-  height: 360px;
+  width: 380px;          /* Puedes cambiar el tamaño aquí */
+  height: 380px;
   margin: 0 auto 40px auto;
-  background: url('https://i.ibb.co/0jZfK8Y/vinyl-real.png') center/contain no-repeat;
+  background: url('https://raw.githubusercontent.com/morgana-mistic/discos/main/DISCO%20MORGANA.png') center/contain no-repeat;
   border-radius: 50%;
   box-shadow: 
-    0 0 70px rgba(255,255,255,0.25),
-    inset 0 0 60px rgba(0,0,0,0.95);
+    0 0 80px rgba(255,255,255,0.3),
+    inset 0 0 70px rgba(0,0,0,0.9);
   position: relative;
-}
-
-/* ETIQUETA CENTRAL PERSONALIZADA */
-.vinyl::after {
-  content: "MORGANA\nTIENDA MÍSTICA";
-  width: 110px;
-  height: 110px;
-  background: #1a1a1a;
-  border: 6px solid #ddd;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 11px;
-  font-weight: bold;
-  line-height: 1.1;
-  color: #f0c040;
-  text-shadow: 0 0 8px rgba(240, 192, 64, 0.8);
-  box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
-  z-index: 2;
 }
 
 /* ANIMACIÓN DE GIRO */
 .spin {
-  animation: spin 3.8s linear infinite;
+  animation: spin 3.5s linear infinite;
 }
 
 @keyframes spin {
