@@ -3,7 +3,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Vinilo</title>
+<title>Vinilo - Morgana Tienda Mística</title>
 <style>
 body {
   margin:0;
@@ -17,27 +17,49 @@ body {
   overflow:hidden;
 }
 
-.container {
-  text-align:center;
-  width:100%;
-}
+.container { text-align:center; width:100%; }
 
-/* VINILO REALISTA CON IMAGEN */
+/* VINILO NEGRO REALISTA */
 .vinyl {
-  width: 320px;          /* Tamaño del disco */
-  height: 320px;
-  margin: 0 auto 30px auto;
-  background: url('https://pngimg.com/d/vinyl_PNG111.png') center/contain no-repeat;
+  width: 360px;
+  height: 360px;
+  margin: 0 auto 40px auto;
+  background: url('https://i.ibb.co/0jZfK8Y/vinyl-real.png') center/contain no-repeat;
   border-radius: 50%;
   box-shadow: 
-    0 0 50px rgba(255,255,255,0.2),
-    inset 0 0 40px rgba(0,0,0,0.8);
+    0 0 70px rgba(255,255,255,0.25),
+    inset 0 0 60px rgba(0,0,0,0.95);
   position: relative;
+}
+
+/* ETIQUETA CENTRAL PERSONALIZADA */
+.vinyl::after {
+  content: "MORGANA\nTIENDA MÍSTICA";
+  width: 110px;
+  height: 110px;
+  background: #1a1a1a;
+  border: 6px solid #ddd;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 1.1;
+  color: #f0c040;
+  text-shadow: 0 0 8px rgba(240, 192, 64, 0.8);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+  z-index: 2;
 }
 
 /* ANIMACIÓN DE GIRO */
 .spin {
-  animation: spin 3.5s linear infinite;
+  animation: spin 3.8s linear infinite;
 }
 
 @keyframes spin {
@@ -45,18 +67,18 @@ body {
   to { transform: rotate(360deg); }
 }
 
-/* VIDEO MÁS GRANDE */
+/* VIDEO GRANDE */
 .video-container {
   width: 95%;
-  max-width: 850px;     /* ← Puedes subir este número si querés aún más grande */
+  max-width: 920px;
   margin: auto;
 }
 .video-container iframe {
   width: 100%;
-  height: 480px;        /* ← Altura más grande */
+  height: 520px;
   border: none;
   border-radius: 12px;
-  box-shadow: 0 0 30px rgba(255,255,255,0.1);
+  box-shadow: 0 0 40px rgba(255,255,255,0.15);
 }
 </style>
 </head>
@@ -71,7 +93,7 @@ const params = new URLSearchParams(window.location.search);
 const video = params.get("v");
 
 if(video){
-  document.getElementById("player").innerHTML =
+  document.getElementById("player").innerHTML = 
     `<iframe src="https://www.youtube.com/embed/${video}" allowfullscreen></iframe>`;
   document.getElementById("vinyl").classList.add("spin");
 } else {
