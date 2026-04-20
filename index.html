@@ -1,0 +1,46 @@
+```html id="html-dinamico"
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Vinilo</title>
+
+<style>
+body {
+  margin:0;
+  background:black;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  font-family:sans-serif;
+}
+iframe {
+  border:none;
+}
+</style>
+</head>
+
+<body>
+
+<div id="player"></div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const video = params.get("v");
+
+if(video){
+  document.getElementById("player").innerHTML =
+    `<iframe width="300" height="170"
+     src="https://www.youtube.com/embed/${video}"
+     allowfullscreen></iframe>`;
+} else {
+  document.getElementById("player").innerHTML =
+    "Sin video";
+}
+</script>
+
+</body>
+</html>
+```
