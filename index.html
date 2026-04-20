@@ -14,82 +14,30 @@ body {
   justify-content:center;
   align-items:center;
   height:100vh;
-  overflow: hidden;
+  overflow:hidden;
 }
 
-/* CONTENEDOR */
 .container {
   text-align:center;
   width:100%;
 }
 
-/* VINILO MEJORADO - Más realista */
+/* VINILO REALISTA CON IMAGEN */
 .vinyl {
-  width: 260px;
-  height: 260px;
+  width: 320px;          /* Tamaño del disco */
+  height: 320px;
   margin: 0 auto 30px auto;
+  background: url('https://pngimg.com/d/vinyl_PNG111.png') center/contain no-repeat;
   border-radius: 50%;
-  background: 
-    radial-gradient(circle at 50% 50%, #222 0%, #111 40%, #0a0a0a 70%, #000 100%),
-    repeating-radial-gradient(circle at 50% 50%, 
-      transparent 0px,
-      rgba(255,255,255,0.08) 2px,
-      transparent 4px);
-  border: 12px solid #111;
   box-shadow: 
-    0 0 40px rgba(255,255,255,0.15),
-    inset 0 0 60px rgba(0,0,0,0.9),
-    0 10px 30px rgba(0,0,0,0.8);
+    0 0 50px rgba(255,255,255,0.2),
+    inset 0 0 40px rgba(0,0,0,0.8);
   position: relative;
-  overflow: hidden;
-}
-
-/* Brillo en la superficie */
-.vinyl::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.25) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* Etiqueta central (como los vinilos reales) */
-.vinyl::after {
-  content: "";
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(#111, #222, #111);
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 4px solid #ddd;
-  box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ddd;
-  font-size: 11px;
-  font-weight: bold;
-  text-align: center;
-  line-height: 1.1;
-}
-
-/* Texto en la etiqueta */
-.vinyl::after::before {
-  content: "VINILO";
-  font-size: 9px;
 }
 
 /* ANIMACIÓN DE GIRO */
 .spin {
-  animation: spin 4s linear infinite;
+  animation: spin 3.5s linear infinite;
 }
 
 @keyframes spin {
@@ -97,17 +45,18 @@ body {
   to { transform: rotate(360deg); }
 }
 
-/* VIDEO */
+/* VIDEO MÁS GRANDE */
 .video-container {
-  width: 90%;
-  max-width: 500px;
+  width: 95%;
+  max-width: 850px;     /* ← Puedes subir este número si querés aún más grande */
   margin: auto;
 }
 .video-container iframe {
   width: 100%;
-  height: 280px;
+  height: 480px;        /* ← Altura más grande */
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(255,255,255,0.1);
 }
 </style>
 </head>
