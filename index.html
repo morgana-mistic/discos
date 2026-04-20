@@ -8,58 +8,66 @@
 <style>
 body {
   margin:0;
-  background:black;
-  color:white;
+  background:#000;
+  color:#fff;
+  font-family:sans-serif;
   display:flex;
   justify-content:center;
   align-items:center;
   height:100vh;
-  font-family:sans-serif;
 }
 
 /* CONTENEDOR */
 .container {
   text-align:center;
+  width:100%;
 }
 
 /* VINILO */
 .vinyl {
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #222 0%, #000 60%);
-  margin: 0 auto 20px;
-  position: relative;
+  width:200px;
+  height:200px;
+  margin:0 auto 20px auto;
+  border-radius:50%;
+  background:#111;
+  border:8px solid #000;
+  box-shadow:0 0 20px rgba(255,255,255,0.1);
+  position:relative;
 }
 
-/* CENTRO DEL VINILO */
+/* CENTRO */
 .vinyl::after {
-  content: "";
-  width: 60px;
-  height: 60px;
-  background: #111;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  content:"";
+  width:50px;
+  height:50px;
+  background:#222;
+  border-radius:50%;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
 }
 
-/* ANIMACIÓN FORZADA */
+/* GIRO */
 .spin {
-  animation: spin 4s linear infinite;
+  animation:spin 3s linear infinite;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-/* REPRODUCTOR */
-iframe {
-  width: 90vw;
-  max-width: 360px;
-  height: 200px;
+/* VIDEO GRANDE */
+.video-container {
+  width:90%;
+  max-width:500px;
+  margin:auto;
+}
+
+.video-container iframe {
+  width:100%;
+  height:280px;
   border:none;
 }
 </style>
@@ -71,7 +79,7 @@ iframe {
 
   <div id="vinyl" class="vinyl"></div>
 
-  <div id="player"></div>
+  <div id="player" class="video-container"></div>
 
 </div>
 
@@ -81,9 +89,8 @@ const video = params.get("v");
 
 if(video){
   document.getElementById("player").innerHTML =
-    `<iframe src="https://www.youtube.com/embed/${video}" allowfullscreen></iframe>`;
+    '<iframe src="https://www.youtube.com/embed/' + video + '" allowfullscreen></iframe>';
 
-  // ACTIVAR GIRO SI HAY VIDEO
   document.getElementById("vinyl").classList.add("spin");
 
 } else {
