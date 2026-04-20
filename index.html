@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,26 +15,28 @@ body {
   align-items:center;
   height:100vh;
   font-family:sans-serif;
-  flex-direction:column;
+}
+
+/* CONTENEDOR */
+.container {
+  text-align:center;
 }
 
 /* VINILO */
 .vinyl {
-  width: 260px;
-  height: 260px;
+  width: 240px;
+  height: 240px;
   border-radius: 50%;
   background: radial-gradient(circle, #222 0%, #000 60%);
-  box-shadow: inset 0 0 30px rgba(255,255,255,0.05),
-              0 0 30px rgba(0,0,0,0.8);
-  margin-bottom: 25px;
+  margin: 0 auto 20px;
   position: relative;
-  animation: spin 6s linear infinite;
 }
 
+/* CENTRO DEL VINILO */
 .vinyl::after {
   content: "";
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   background: #111;
   border-radius: 50%;
   position: absolute;
@@ -43,28 +45,35 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* ANIMACIÓN */
+/* ANIMACIÓN FORZADA */
+.spin {
+  animation: spin 4s linear infinite;
+}
+
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* REPRODUCTOR */
 iframe {
+  width: 90vw;
+  max-width: 360px;
+  height: 200px;
   border:none;
-  width: 360px;
-  height: 215px;
-  box-shadow: 0 0 25px rgba(255,255,255,0.08);
-  border-radius: 10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="vinyl"></div>
+<div class="container">
 
-<div id="player"></div>
+  <div id="vinyl" class="vinyl"></div>
+
+  <div id="player"></div>
+
+</div>
 
 <script>
 const params = new URLSearchParams(window.location.search);
@@ -72,15 +81,16 @@ const video = params.get("v");
 
 if(video){
   document.getElementById("player").innerHTML =
-    `<iframe src="https://www.youtube.com/embed/${video}"
-     allowfullscreen></iframe>`;
+    `<iframe src="https://www.youtube.com/embed/${video}" allowfullscreen></iframe>`;
+
+  // ACTIVAR GIRO SI HAY VIDEO
+  document.getElementById("vinyl").classList.add("spin");
+
 } else {
-  document.getElementById("player").innerHTML =
-    "Sin video";
+  document.getElementById("player").innerHTML = "Sin video";
 }
 </script>
 
 </body>
 </html>
 ```
-
