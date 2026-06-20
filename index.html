@@ -17,7 +17,10 @@ body {
   overflow:hidden;
 }
 
-.container { text-align:center; width:100%; }
+.container { 
+  text-align:center; 
+  width:100%; 
+}
 
 /* === TU VINILO PERSONALIZADO === */
 .vinyl {
@@ -55,12 +58,39 @@ body {
   border-radius: 12px;
   box-shadow: 0 0 40px rgba(255,255,255,0.15);
 }
+
+/* FIRMA */
+#firma{
+  position:fixed;
+  bottom:10px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:999;
+  font-size:0.85rem;
+  opacity:0.75;
+  text-align:center;
+}
+
+#firma a{
+  color:#ddd;
+  text-decoration:none;
+}
+
+#firma a:hover{
+  opacity:1;
+}
 </style>
 </head>
 <body>
 <div class="container">
   <div id="vinyl" class="vinyl"></div>
   <div id="player" class="video-container"></div>
+</div>
+
+<div id="firma">
+  <a href="https://wa.me/5493854118422" target="_blank">
+    ✨ Diseño digital por Morgana
+  </a>
 </div>
 
 <script>
